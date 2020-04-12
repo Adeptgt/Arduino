@@ -1,5 +1,6 @@
 #include "sav_button.h"
 SButton  lbut1(2,100,0,0,0);
+SButton  lbut2(3,100,0,0,0);
 int light1=4;
 int light2=5;
 int light3=6;
@@ -13,6 +14,7 @@ int lstatus5=0;
 void setup() {
   // put your setup code here, to run once:
    lbut1.begin();
+   lbut2.begin();
    pinMode(light1, OUTPUT); // Основной свет
    pinMode(light2, OUTPUT); // Остров светильник 1
    pinMode(light3, OUTPUT); // Остров светильник 2
@@ -31,7 +33,7 @@ switch( lbut1.Loop() ){
          Serial.println("BUTTON 1 RELEASE");
          lstatus1=0;
          break;
-      case SB_CLICK: 
+      case SB_PUSH: 
          Serial.println("BUTTON 1 CLICK");
          lstatus1=1;
          break;
@@ -47,6 +49,31 @@ switch (lstatus1)
     break;
                  
 }
+
+
+switch( lbut2.Loop() ){
+  
+      case SB_RELEASE: 
+         Serial.println("BUTTON 2 RELEASE");
+         lstatus2=0;
+         break;
+      case SB_PUSH: 
+         Serial.println("BUTTON 2 CLICK");
+         lstatus2=1;
+         break;
+   }
+
+switch (lstatus2)
+{
+ case 0:
+    digitalWrite(light2,LOW);
+    break;
+ case 1:
+    digitalWrite(light2,HIGH);
+    break;
+                 
+}
+
 
 
   

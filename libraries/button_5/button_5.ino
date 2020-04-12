@@ -4,7 +4,7 @@
  * http://samopal.pro
 */
 #include "sav_button.h"
-SButton button1(4,50,400,800,400);
+SButton button1(2,50,400,800,400);
 SButton button2(3,50,400,800,400);
 
 void setup()
@@ -23,7 +23,7 @@ void loop(){
          Serial.println("SB_PUSH 1");
          break;
       case SB_CLICK:
-         Serial.println("SB_CLICKn 1");
+         Serial.println("SB_CLICK 1");
          break;
       case SB_RELEASE: 
          Serial.println("SB_RELEASE 1"); 
