@@ -11,10 +11,10 @@ int fanstatus1=0;
 int fanstatus2=0;
 unsigned long timer1=0;
 unsigned long timer2=0;
-unsigned long fan1_starttime=240000;
-unsigned long fan2_starttime=120000;
+unsigned long fan1_starttime=300000;
+unsigned long fan2_starttime=180000;
 unsigned long fan1_stoptime=60000;
-unsigned long fan2_stoptime=120000;
+unsigned long fan2_stoptime=60000;
 void setup() {
   // put your setup code here, to run once:
    lbut1.begin();
