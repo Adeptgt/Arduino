@@ -1,9 +1,9 @@
-#ifndef Fan_h
-#define Fan_h
+#ifndef Light_h
+#define Light_h
 #include "Arduino.h"
 
 
-class Fan{
+class Light{
 private:
 byte Pin;
 unsigned long start_time;
@@ -15,7 +15,7 @@ unsigned int   state; // 0 - OFF; 1 - ON ; 2 - PAUSE;
 public:
 unsigned long working_time;
 unsigned long on_time;
-Fan(byte pin,unsigned long tm1=120000,unsigned long tm2=60000);
+Light(byte pin,unsigned long tm1=120000,unsigned long tm2=60000);
 void start();
 void stop();
 int  status();

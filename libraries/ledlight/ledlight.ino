@@ -1,9 +1,9 @@
 /** 
  *Управление насосом
 */
-#include "Fan.h"
+#include "ledlight.h"
 
-Fan Fan1(7,20000,10000);
+Light Light1(7,20000,10000);
 int state=0;
 unsigned int checkint=1000;
 unsigned long checktime;
@@ -13,8 +13,8 @@ unsigned long wtime=0;
 void setup()
 {
  Serial.begin(9600);
- Serial.println("Test Fan ...");
- Fan1.begin();
+ Serial.println("Test Light ...");
+ Light1.begin();
 }
 
 void loop()
@@ -24,17 +24,17 @@ void loop()
   if(millis()-wtime>timeout)
   { 
     
-    if(Fan1.status()>0){Fan1.stop(); 
+    if(Light1.status()>0){Light1.stop(); 
     Serial.print(wtime); 
-    Serial.println(" send comand Fan stop"); 
+    Serial.println(" send comand Light stop"); 
     } 
-    else {Fan1.start(); Serial.print(wtime); Serial.println(" send comand  Fan start");}
+    else {Light1.start(); Serial.print(wtime); Serial.println(" send comand  Light start");}
     wtime=millis();
   }
   if(millis()-checktime>checkint)
-  { Fan1.Loop();
+  { Light1.Loop();
     Serial.print("Status: ");
-    Serial.println(Fan1.status());
+    Serial.println(Light1.status());
     Serial.print("time left: ");
     Serial.println(millis()-wtime);
     Serial.print(" for timeout: ");
