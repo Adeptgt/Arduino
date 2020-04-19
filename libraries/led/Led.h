@@ -1,9 +1,9 @@
-#ifndef Light_h
-#define Light_h
+#ifndef Pump_h
+#define Pump_h
 #include "Arduino.h"
 
 
-class Light{
+class Pump{
 private:
 byte Pin;
 unsigned long start_time;
@@ -15,7 +15,7 @@ unsigned int   state; // 0 - OFF; 1 - ON ; 2 - PAUSE;
 public:
 unsigned long working_time;
 unsigned long on_time;
-Light(byte pin,unsigned long tm1=120000,unsigned long tm2=60000);
+Pump(byte pin,unsigned long tm1=120000,unsigned long tm2=60000);
 void start();
 void stop();
 int  status();

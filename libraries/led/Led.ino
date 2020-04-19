@@ -1,9 +1,9 @@
 /** 
  *Управление насосом
 */
-#include "ledlight.h"
+#include "Pump.h"
 
-Light Light1(7,20000,10000);
+Pump pump1(7,20000,10000);
 int state=0;
 unsigned int checkint=1000;
 unsigned long checktime;
@@ -13,8 +13,8 @@ unsigned long wtime=0;
 void setup()
 {
  Serial.begin(9600);
- Serial.println("Test Light ...");
- Light1.begin();
+ Serial.println("Test pump ...");
+ pump1.begin();
 }
 
 void loop()
@@ -24,17 +24,17 @@ void loop()
   if(millis()-wtime>timeout)
   { 
     
-    if(Light1.status()>0){Light1.stop(); 
+    if(pump1.status()>0){pump1.stop(); 
     Serial.print(wtime); 
-    Serial.println(" send comand Light stop"); 
+    Serial.println(" send comand Pump stop"); 
     } 
-    else {Light1.start(); Serial.print(wtime); Serial.println(" send comand  Light start");}
+    else {pump1.start(); Serial.print(wtime); Serial.println(" send comand  Pump start");}
     wtime=millis();
   }
   if(millis()-checktime>checkint)
-  { Light1.Loop();
+  { pump1.Loop();
     Serial.print("Status: ");
-    Serial.println(Light1.status());
+    Serial.println(pump1.status());
     Serial.print("time left: ");
     Serial.println(millis()-wtime);
     Serial.print(" for timeout: ");
