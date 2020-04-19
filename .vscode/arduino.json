@@ -1,0 +1,7 @@
+{
+    "programmer": "AVR ISP",
+    "board": "arduino:avr:nano",
+    "configuration": "cpu=atmega328",
+    "port": "COM5",
+    "sketch": "LIGHT_BT_kitchen\\LIGHT_BT_kitchen.ino"
+}

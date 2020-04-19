@@ -1,27 +1,23 @@
-#ifndef Pump_h
-#define Pump_h
+#ifndef Led_h
+#define Led_h
 #include "Arduino.h"
 
-
-class Pump{
+class Led
+{
 private:
-byte Pin;
-unsigned long start_time;
-unsigned long pause_time;
-unsigned long timeout;
-unsigned long resttime;
-unsigned int ask_status;
-unsigned int   state; // 0 - OFF; 1 - ON ; 2 - PAUSE;
+    byte Pin;
+    unsigned int Level;
+    unsigned int ask_level;
+    unsigned long Interval; // время между изменениями яркости в миллисикундах
+    unsigned long time;
+
 public:
-unsigned long working_time;
-unsigned long on_time;
-Pump(byte pin,unsigned long tm1=120000,unsigned long tm2=60000);
-void start();
-void stop();
-int  status();
-int wtime();
-void begin();
-void Loop();
+    Led(byte pin,unsigned long interval);
+    void SET(unsigned int level);
+    void ON();
+    void OFF();
+    void begin();
+    int Loop();
 };
 
 #endif
