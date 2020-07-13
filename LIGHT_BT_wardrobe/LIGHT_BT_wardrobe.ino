@@ -1,6 +1,6 @@
 #include "sav_button.h"
 SButton  lbut1(2,100,500,1000,500);
-SButton  lbut_sauna(3,100,0,0,0);
+SButton  lbut_sauna(3,100,500,1000,500);
 int light1=4;
 int light2=5;
 int light_sauna=6;
